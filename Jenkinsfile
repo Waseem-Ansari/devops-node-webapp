@@ -38,7 +38,7 @@ pipeline {
           helm upgrade --install webapp ./helm/mywebapp \
             --set image.repository=${IMAGE} \
             --set image.tag=${BUILD_NUMBER}
-            --kubeconfig=/home/ec2-user/k3s.yaml \
+            --kubeconfig=/var/lib/jenkins/k3s.yaml \
             --insecure-skip-tls-verify \
             --debug
         """
