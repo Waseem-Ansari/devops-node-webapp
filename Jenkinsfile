@@ -26,6 +26,7 @@ docker.build("${IMAGE}:${BUILD_NUMBER}")
       steps {
         script {
           docker.withRegistry('', DOCKERHUB_CREDENTIALS) {
+            echo "Using Dockerhub creds ID: ${DOCKERHUB_CREDENTIALS}"
             docker.image("${IMAGE}:${BUILD_NUMBER}").push()
           }
         }
