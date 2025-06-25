@@ -9,7 +9,8 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-git 'https://github.com/Waseem-Ansari/devops-node-webapp.git'
+        git branch: 'main',
+        url: 'https://github.com/Waseem-Ansari/devops-node-webapp.git'
       }
     }
  
