@@ -17,7 +17,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         script {
-          def dockerImage = docker.build("${IMAGE}:${BUILD_NUMBER}")
+          docker.build("${IMAGE}:${BUILD_NUMBER}")
         }
       }
     }
@@ -26,7 +26,7 @@ pipeline {
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-           dockerImage.push()
+            docker.image("${IMAGE}:${BUILD_NUMBER}").push()
           }
         }
       }
