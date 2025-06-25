@@ -39,7 +39,6 @@ pipeline {
             --set image.repository=${IMAGE} \
             --set image.tag=${BUILD_NUMBER}
             --kubeconfig=/var/lib/jenkins/k3s.yaml \
-            --insecure-skip-tls-verify \
             --debug
         """
       }
